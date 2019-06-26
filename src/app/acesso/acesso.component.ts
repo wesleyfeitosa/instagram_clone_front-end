@@ -52,10 +52,10 @@ export class AcessoComponent implements OnInit {
   }
 
   public inicioDaAnimacao(){
-    console.log('Inicio da animação');
+    // console.log('Inicio da animação');
   }
   public fimDaAnimacao(){
-    console.log('Fim da animação');
+    // console.log('Fim da animação');
   }
 
 }
