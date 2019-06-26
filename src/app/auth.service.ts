@@ -1,4 +1,4 @@
-import { Usuario } from './usuario.model';
+import { Usuario } from './acesso/usuario.model';
 import * as firebase from 'firebase';
 
 export class Autenticacao{

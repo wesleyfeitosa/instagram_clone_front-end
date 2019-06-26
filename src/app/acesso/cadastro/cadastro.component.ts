@@ -2,7 +2,7 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl } from "@angular/forms";
 
 import { Usuario } from '../usuario.model'
-import { Autenticacao } from '../auth.service';
+import { Autenticacao } from '../../auth.service';
 
 @Component({
   selector: 'app-cadastro',
