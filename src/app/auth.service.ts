@@ -6,7 +6,12 @@ export class Autenticacao{
         console.log('Chegamos até o seriviço', usuario);
         firebase.auth().createUserWithEmailAndPassword(usuario.email, usuario.senha)
             .then((resposta: any) => {
-                console.log(resposta);
+                //remover o atributo senha do objeto usuario
+                delete usuario.senha;
+
+                //registrando dados complementares do usuário no path email na base 64 
+                firebase.database().ref(`usuario_detalhe/${btoa(usuario.email)}`)
+                .set({ usuario })
             })
             .catch((error: Error) => {
                 console.log(error);
