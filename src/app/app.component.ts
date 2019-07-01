@@ -18,7 +18,7 @@ export class AppComponent implements OnInit{
     authDomain: "instagram-clone-app12.firebaseapp.com",
     databaseURL: "https://instagram-clone-app12.firebaseio.com",
     projectId: "instagram-clone-app12",
-    storageBucket: "",
+    storageBucket: "instagram-clone-app12.appspot.com",
     messagingSenderId: "818346679773",
     appId: "1:818346679773:web:26c32aba72e2244c"
   };

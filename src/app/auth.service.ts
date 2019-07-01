@@ -7,6 +7,7 @@ import * as firebase from 'firebase';
 export class Autenticacao {
 
     public token_id: string;
+    public message: string;
 
     constructor(private router: Router){}
 
@@ -22,12 +23,12 @@ export class Autenticacao {
                     .set({ usuario })
             })
             .catch((error: Error) => {
-                console.log(error);
+                this.message = error.message;
             });
     }
 
-    public autenticar(email: string, senha: string) {
-        firebase.auth().signInWithEmailAndPassword(email, senha)
+    public autenticar(email: string, senha: string): Promise<any> {
+        return firebase.auth().signInWithEmailAndPassword(email, senha)
             .then((resposta: any) => {
                 firebase.auth().currentUser.getIdToken()
                     .then((idToken: string) => {
@@ -36,7 +37,9 @@ export class Autenticacao {
                         this.router.navigate(['/home']);
                     })
             })
-            .catch((erro: Error) => console.log(erro))
+            .catch((erro: Error) => {
+                this.message = erro.message;
+            })
     }
 
     public autenticado(): boolean{

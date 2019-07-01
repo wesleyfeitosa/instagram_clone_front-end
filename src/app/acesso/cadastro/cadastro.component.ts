@@ -14,6 +14,8 @@ export class CadastroComponent implements OnInit {
   @Output()
   public exibirPainel: EventEmitter<string> = new EventEmitter<string>();
 
+  public erroMessage: string;
+
   public formulario: FormGroup = new FormGroup({
     'email': new FormControl(null),
     'nome_completo': new FormControl(null),
@@ -40,6 +42,9 @@ export class CadastroComponent implements OnInit {
       this.formulario.value.senha
     );
     this.auth.cadastrarUsuario(usuario)
-    .then(() => this.exibirPainelLogin());
+    .then(() => {
+      this.exibirPainelLogin()
+      this.erroMessage = this.auth.message;
+    });
   }
 }
