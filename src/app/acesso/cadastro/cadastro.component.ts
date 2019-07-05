@@ -43,8 +43,18 @@ export class CadastroComponent implements OnInit {
     );
     this.auth.cadastrarUsuario(usuario)
     .then(() => {
-      this.exibirPainelLogin()
+
+      if(this.erroMessage !== undefined){
+        this.auth.message = undefined;
+      }
+
       this.erroMessage = this.auth.message;
+      console.log(this.erroMessage);
+      
+      if(this.erroMessage === undefined){
+        this.exibirPainelLogin()
+        this.erroMessage = undefined;
+      } 
     });
   }
 }
