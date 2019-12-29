@@ -1,4 +1,4 @@
-# InstagramClone
+# InstagramClone Front-end with Angular
 
 link do app: http://instagram-clone-jwf.s3-website-sa-east-1.amazonaws.com
 
